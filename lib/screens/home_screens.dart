@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tribun_app/controllers/news_controller.dart';
+import 'package:tribun_app/routes/app_pages.dart';
 import 'package:tribun_app/utils/app_colors.dart';
 import 'package:tribun_app/widgets/category_chip.dart';
 import 'package:tribun_app/widgets/loading_shimmer.dart';
+import 'package:tribun_app/widgets/news_card.dart';
 
 class HomeScreen extends GetView<NewsController> {
   @override
@@ -59,20 +61,20 @@ class HomeScreen extends GetView<NewsController> {
                 return  _buildEmptyWidget();
               }
 
-              return RefreshIndicator(
+             return RefreshIndicator(
                 onRefresh: controller.refreshNews,
                 child: ListView.builder(
                   padding: EdgeInsets.all(16),
                   itemCount: controller.articles.length,
                   itemBuilder: (context, index) {
                     final article = controller.articles[index];
-                    // return NewsCard(
-                    //   article: article,
-                    //   onTap: () => Get.toNamed(
-                    //     Routes.NEWS_DETAIL,
-                    //     arguments: article,
-                    //   ),
-                    // );
+                    return NewsCard(
+                      article: article,
+                      onTap: () => Get.toNamed(
+                        Routes.NEWS_DETAIL,
+                        arguments: article,
+                      ),
+                    );
                   },
                 ),
               );
