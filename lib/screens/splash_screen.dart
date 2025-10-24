@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen>
     _animationController.forward();
 
     // Navigate to home after 3 seconds
-     Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 3), () {
       Get.offAllNamed(Routes.HOME);
     });
   }

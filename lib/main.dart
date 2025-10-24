@@ -8,19 +8,19 @@ import 'package:tribun_app/utils/app_colors.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Load environment variables
+  // Load environment variables firtst before running the app
   await dotenv.load(fileName: '.env');
   
-  runApp(const MyApp());
+  runApp(const TribunApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class TribunApp extends StatelessWidget {
+  const TribunApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'News App',
+      title: 'Tribun App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: AppColors.primary,
